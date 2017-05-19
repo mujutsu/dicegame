@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Played Game</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container-fluid">
+
+		<div class="panel-group" style="margin-top: 40px">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<span th:utext="${userName}"></span>
+				</div>
+				<div class="panel-body">
+					<img th:src="@{/images/dice.jpg}"
+						class="img-responsive center-block" width="300" height="300"
+						alt="Dice" />
+				</div>
+				<h1 class="text-center" th:utext="${winorlose}" id="Die4"></h1>
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+							<tr>						
+								<td><h2 class="text-center" th:text="|Player rolls: ${die1}, ${die2}, total: ${result1}.|"></h2></td>								
+							</tr>
+							<tr>								
+								<td><h2 class="text-center" th:text="|Computer rolls: ${die3}, ${die4}, total: ${result2}.|"></h2></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<form th:action="@{/play}" method="get">
+			<button class="btn btn-md btn-danger btn-block" name="registration"
+				type="Submit">Play again</button>
+		</form>
+	</div>
+</body>
+</html>
